@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dev": "browser-sync start --proxy \"http://localhost/\" --files \"src/*.php\"\n"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.29.3"
+  }
+}
