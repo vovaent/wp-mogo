@@ -1,0 +1,17 @@
+{
+  "name": "acf/about-section",
+  "title": "About Section",
+  "category": "formatting",
+  "icon": "format-gallery",
+  "keywords": [
+    "about",
+    "section"
+  ],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "about-section.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

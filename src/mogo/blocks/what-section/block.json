@@ -1,0 +1,17 @@
+{
+  "name": "acf/what-section",
+  "title": "What Section",
+  "category": "formatting",
+  "icon": "format-gallery",
+  "keywords": [
+    "what",
+    "section"
+  ],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "what-section.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

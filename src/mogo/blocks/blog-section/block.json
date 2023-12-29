@@ -1,0 +1,17 @@
+{
+  "name": "acf/blog-section",
+  "title": "Blog Section",
+  "category": "formatting",
+  "icon": "format-gallery",
+  "keywords": [
+    "blog",
+    "section"
+  ],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "blog-section.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

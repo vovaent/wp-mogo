@@ -1,0 +1,17 @@
+{
+  "name": "acf/team-section",
+  "title": "Team Section",
+  "category": "formatting",
+  "icon": "format-gallery",
+  "keywords": [
+    "team",
+    "section"
+  ],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "team-section.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

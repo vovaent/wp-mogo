@@ -1,0 +1,17 @@
+{
+  "name": "acf/service-section",
+  "title": "Service Section",
+  "category": "formatting",
+  "icon": "format-gallery",
+  "keywords": [
+    "service",
+    "section"
+  ],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "service-section.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "acf/testimonials-section",
+  "title": "Testimonials Section",
+  "category": "formatting",
+  "icon": "format-gallery",
+  "keywords": [
+    "testimonials",
+    "section"
+  ],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "testimonials-section.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

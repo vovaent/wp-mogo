@@ -1,0 +1,17 @@
+{
+  "name": "acf/hero-section",
+  "title": "Hero Section",
+  "category": "formatting",
+  "icon": "format-gallery",
+  "keywords": [
+    "hero",
+    "section"
+  ],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "hero-section.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}
