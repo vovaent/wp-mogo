@@ -6,6 +6,10 @@
  * @since Mogo 1.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	return;
+}
+
 if ( ! defined( 'MOGO_VERSION' ) ) {
 	define( 'MOGO_VERSION', '1.0.0' );
 }
@@ -106,90 +110,6 @@ function mogo_scripts(): void {
 
 add_action( 'wp_enqueue_scripts', 'mogo_scripts' );
 
-/**
- * Adding additional classes to a menu item.
- *
- * @param string[] $classes Array of the CSS classes that are applied to the menu item's `<li>` element.
- * @param WP_Post  $menu_item The current menu item object.
- * @param stdClass $args An object of wp_nav_menu() arguments.
- *
- * @return array
- */
-function mogo_add_additional_class_on_li(
-	array $classes,
-	WP_Post $menu_item,
-	stdClass $args
-): array {
-	if ( property_exists( $args, 'add_li_class' ) ) {
-		$classes[] = $args->add_li_class;
-	}
-
-	return $classes;
-}
-
-add_filter( 'nav_menu_css_class', 'mogo_add_additional_class_on_li', 1, 3 );
-
-/**
- * Adding additional classes to a menu item link.
- *
- * @param array    $atts The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
- * @param WP_Post  $menu_item The current menu item object.
- * @param stdClass $args An object of wp_nav_menu() arguments.
- *
- * @return array
- */
-function mogo_add_additional_class_on_a(
-	array $atts,
-	WP_Post $menu_item,
-	stdClass $args
-): array {
-	if ( property_exists( $args, 'add_link_class' ) ) {
-		$atts['class'] = $args->add_link_class;
-	}
-
-	return $atts;
-}
-
-add_filter( 'nav_menu_link_attributes', 'mogo_add_additional_class_on_a', 1, 3 );
-
-/**
- * We use WordPress's init hook to make sure
- * our blocks are registered early in the loading
- * process.
- *
- * @link https://developer.wordpress.org/reference/hooks/init/
- */
-function mogo_register_acf_blocks(): void {
-	register_block_type( __DIR__ . '/blocks/hero-section' );
-	register_block_type( __DIR__ . '/blocks/about-section' );
-	register_block_type( __DIR__ . '/blocks/service-section' );
-	register_block_type( __DIR__ . '/blocks/what-section' );
-	register_block_type( __DIR__ . '/blocks/team-section' );
-	register_block_type( __DIR__ . '/blocks/testimonials-section' );
-	register_block_type( __DIR__ . '/blocks/blog-section' );
-}
-
-add_action( 'init', 'mogo_register_acf_blocks' );
-
-/**
- * Check for empty values in the array.
- *
- * @param array|null $arr Array.
- *
- * @return bool
- */
-function mogo_is_array_empty( array $arr = null ): bool {
-	if ( ! $arr ) {
-		return true;
-	}
-
-	$arr_filtered = array_filter(
-		$arr,
-		null,
-	);
-	if ( count( $arr ) !== count( $arr_filtered ) ) {
-		return true;
-	}
-
-	return false;
-}
+require_once get_template_directory() . '/includes/helpers.php';
+require_once get_template_directory() . '/includes/menu.php';
+require_once get_template_directory() . '/includes/acf.php';
