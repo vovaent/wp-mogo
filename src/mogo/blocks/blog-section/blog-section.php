@@ -39,19 +39,24 @@ if ( ! empty( $block['className'] ) ) {
 	</h2>
 	<?php if ( ! empty( $latest_posts ) ) : ?>
 		<ul class="recent_list">
+			<?php global $post; ?>
 			<?php foreach ( $latest_posts as $latest_post ) : ?>
+				<?php
+				$post = $latest_post; //phpcs:ignore
+				setup_postdata( $post );
+				?>
 				<li class="recent_item">
 					<article class="post">
 						<div class="image_wrap blog_mod">
-							<?php echo get_the_post_thumbnail( $latest_post, 'medium', array( 'class' => 'img blog_mod' ) ); ?>
+							<?php the_post_thumbnail( 'medium', array( 'class' => 'img blog_mod' ) ); ?>
 						</div>
-						<h2 class="post_title"><a href="<?php echo esc_attr( get_permalink( $latest_post ) ); ?>"
-													class="post_link"><?php echo esc_html( get_the_title( $latest_post ) ); ?></a>
+						<h2 class="post_title"><a href="<?php the_permalink(); ?>"
+													class="post_link"><?php the_title(); ?></a>
 						</h2>
 						<div class="post_text">
-							<?php echo wp_kses_post( get_the_content( $latest_post ) ); ?>
+							<?php the_content(); ?>
 						</div>
-						<a href="<?php echo esc_attr( get_permalink( $latest_post ) ); ?>" class="post_date"><span
+						<a href="<?php the_permalink(); ?>" class="post_date"><span
 									class="post_d_day"><?php echo esc_html( get_the_date( 'd' ) ); ?></span><span
 									class="post_d_month"><?php echo esc_html( get_the_date( 'M' ) ); ?></span></a>
 						<div class="post_stat_wrap"><a href="#views" class="post_stat views_mod">123</a><a
@@ -61,6 +66,7 @@ if ( ! empty( $block['className'] ) ) {
 					</article>
 				</li>
 			<?php endforeach; ?>
+			<?php wp_reset_postdata(); ?>
 		</ul>
 	<?php endif; ?>
 </section>
