@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "browser-sync start --proxy \"http://localhost/\" --files \"src/*.php\"\n",
     "bundle:theme": "dir-archiver --src . --dest ../mogo.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock",
-    "bundle:muPlugins": "dir-archiver --src ../mu-plugins --dest ../mu-plugins.zip"
+    "bundle:muPlugins": "dir-archiver --src ../mu-plugins --dest ../mu-plugins.zip",
+    "bundle:uploads": "dir-archiver --src ../wp/wp-content/uploads --dest ../uploads.zip"
   },
   "devDependencies": {
     "browser-sync": "^2.29.3",
