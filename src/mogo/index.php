@@ -13,7 +13,7 @@ get_header();
 		<?php
 		if ( have_posts() ) :
 
-			if ( is_home() && ! is_front_page() ) :
+			if ( ( is_home() && ! is_front_page() ) || is_singular() ) :
 				?>
 				<h1><?php single_post_title(); ?></h1>
 				<?php
